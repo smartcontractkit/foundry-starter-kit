@@ -1,2 +1,6 @@
 cache/
 out/
+.gas-snapshot
+.vscode/
+.env
+.encryptedKey

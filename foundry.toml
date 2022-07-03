@@ -2,5 +2,8 @@
 src = 'src'
 out = 'out'
 libs = ['lib']
+gas_reports = ["*"]
+optimizer = true
+optimizer_runs = 20000
 
 # See more config options https://github.com/gakonst/foundry/tree/master/config
