@@ -4,3 +4,4 @@ out/
 .vscode/
 .env
 .encryptedKey
+broadcast/

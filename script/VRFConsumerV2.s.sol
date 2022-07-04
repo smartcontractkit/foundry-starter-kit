@@ -2,44 +2,43 @@
 pragma solidity ^0.8.7;
 
 import "forge-std/Script.sol";
-import "../src/APIConsumer.sol";
+import "../src/VRFConsumerV2.sol";
 import "./HelperConfig.sol";
-import "../src/test/mocks/MockOracle.sol";
 import "../src/test/mocks/LinkToken.sol";
+import "../src/test/mocks/MockVRFCoordinatorV2.sol";
 
-contract DeployAPIConsumer is Script, HelperConfig {
+contract DeployVRFConsumerV2 is Script, HelperConfig {
     function run() external {
         HelperConfig helperConfig = new HelperConfig();
 
         (
-            address oracle,
-            bytes32 jobId,
-            uint256 chainlinkFee,
+            ,
+            ,
+            ,
             address link,
             ,
             ,
-            ,
-            ,
-
+            uint64 subscriptionId,
+            address vrfCoordinator,
+            bytes32 keyHash
         ) = helperConfig.activeNetworkConfig();
 
         if (link == address(0)) {
             link = address(new LinkToken());
         }
 
-        if (oracle == address(0)) {
-            oracle = address(new MockOracle(link));
+        if (vrfCoordinator == address(0)) {
+            vrfCoordinator = address(new MockVRFCoordinatorV2());
         }
 
         vm.startBroadcast();
 
-        APIConsumer apiConsumer = new APIConsumer(
-            oracle,
-            jobId,
-            chainlinkFee,
-            link
+        VRFConsumerV2 vrfConsumerV2 = new VRFConsumerV2(
+            subscriptionId,
+            vrfCoordinator,
+            link,
+            keyHash
         );
-
         vm.stopBroadcast();
     }
 }
