@@ -21,6 +21,8 @@ snapshot :; forge snapshot
 
 slither :; slither ./src 
 
+format :; prettier --write src/**/*.sol && prettier --write src/*.sol
+
 anvil :; anvil -m 'test test test test test test test test test test test junk'
 
 # use the "@" to hide the command from your shell 

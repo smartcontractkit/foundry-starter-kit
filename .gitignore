@@ -5,3 +5,6 @@ out/
 .env
 .encryptedKey
 broadcast/
+
+node_modules
+package-lock.json
