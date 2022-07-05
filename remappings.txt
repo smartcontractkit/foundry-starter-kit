@@ -1,6 +1,10 @@
-@ds=lib/ds-test/src/
+@chainlink/=lib/chainlink-brownie-contracts/
+@clones=lib/clones-with-immutable-args/src/
+@ds=lib/solmate/ds-test/src/
 @solmate=lib/solmate/src/
 @std=lib/forge-std/src/
-@clones=lib/clones-with-immutable-args/src/
-@chainlink/=lib/chainlink-brownie-contracts/
-ds-test=lib/ds-test/src/
+chainlink-brownie-contracts/=lib/chainlink-brownie-contracts/
+ds-test=lib/solmate/lib/ds-test/src/
+ds-test/=lib/solmate/lib/ds-test/src/
+forge-std/=lib/forge-std/src/
+solmate/=lib/solmate/src/
