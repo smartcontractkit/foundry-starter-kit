@@ -4,10 +4,10 @@ pragma solidity ^0.8.0;
 
 import "../APIConsumer.sol";
 import "./mocks/LinkToken.sol";
-import "ds-test/test.sol";
+import "forge-std/Test.sol";
 import "./mocks/MockOracle.sol";
 
-contract APIConsumerTest is DSTest {
+contract APIConsumerTest is Test {
     APIConsumer public apiConsumer;
     LinkToken public linkToken;
     MockOracle public mockOracle;

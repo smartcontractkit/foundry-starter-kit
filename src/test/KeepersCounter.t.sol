@@ -3,10 +3,10 @@
 pragma solidity ^0.8.0;
 
 import "../KeepersCounter.sol";
-import "ds-test/test.sol";
+import "forge-std/Test.sol";
 import "./utils/Cheats.sol";
 
-contract KeepersCounterTest is DSTest {
+contract KeepersCounterTest is Test {
     KeepersCounter public counter;
     uint256 public staticTime;
     uint256 public INTERVAL;

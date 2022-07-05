@@ -5,9 +5,9 @@ import "../VRFConsumerV2.sol";
 import "./mocks/MockVRFCoordinatorV2.sol";
 import "./mocks/LinkToken.sol";
 import "./utils/Cheats.sol";
-import "ds-test/test.sol";
+import "forge-std/Test.sol";
 
-contract VRFConsumerV2Test is DSTest {
+contract VRFConsumerV2Test is Test {
     LinkToken public linkToken;
     MockVRFCoordinatorV2 public vrfCoordinator;
     VRFConsumerV2 public vrfConsumer;
