@@ -158,7 +158,7 @@ Contributions are always welcome! Open a PR or an issue!
 ## Resources
 
 -   [Chainlink Documentation](https://docs.chain.link/)
--   [Foundry Documentation](https://onbjerg.github.io/foundry-book/)
+-   [Foundry Documentation](https://book.getfoundry.sh/)
 
 ### TODO
 
