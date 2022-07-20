@@ -88,6 +88,7 @@ contract VRFConsumerV2 is VRFConsumerBaseV2 {
         internal
         override
     {
+        require(s_requestId == requestId);
         s_randomWords = randomWords;
         emit ReturnedRandomness(randomWords);
     }

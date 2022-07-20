@@ -33,12 +33,13 @@ contract DeployVRFConsumerV2 is Script, HelperConfig {
 
         vm.startBroadcast();
 
-        VRFConsumerV2 vrfConsumerV2 = new VRFConsumerV2(
+        new VRFConsumerV2(
             subscriptionId,
             vrfCoordinator,
             link,
             keyHash
         );
+        
         vm.stopBroadcast();
     }
 }

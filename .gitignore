@@ -8,3 +8,6 @@ broadcast/
 
 node_modules
 package-lock.json
+
+.DS_Store
+src/.DS_Store
