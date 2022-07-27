@@ -118,7 +118,7 @@ contract MockOracle is ChainlinkRequestInterface, LinkTokenReceiver {
      * @dev Sets the LinkToken address for the imported LinkTokenInterface
      * @param _link The address of the LINK token
      */
-    constructor(address _link) public {
+    constructor(address _link) {
         LinkToken = LinkTokenInterface(_link); // external but already deployed and unalterable
     }
 

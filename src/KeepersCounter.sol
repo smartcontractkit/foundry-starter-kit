@@ -38,13 +38,15 @@ contract KeepersCounter is KeeperCompatibleInterface {
         bytes memory /* checkData */
     )
         public
+        view
         override
         returns (
             bool upkeepNeeded,
-            bytes memory /* performData */
+            bytes memory performData
         )
     {
         upkeepNeeded = (block.timestamp - lastTimeStamp) > interval;
+        performData = bytes(""); 
         // We don't use the checkData in this example. The checkData is defined when the Upkeep was registered.
     }
 

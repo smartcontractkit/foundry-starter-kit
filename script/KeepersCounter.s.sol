@@ -14,7 +14,7 @@ contract DeployKeepersCounter is Script, HelperConfig {
 
         vm.startBroadcast();
 
-        KeepersCounter keepersCounter = new KeepersCounter(updateInterval);
+        new KeepersCounter(updateInterval);
 
         vm.stopBroadcast();
     }
