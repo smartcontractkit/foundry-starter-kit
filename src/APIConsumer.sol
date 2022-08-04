@@ -25,9 +25,10 @@ contract APIConsumer is ChainlinkClient {
      * @param _fee - node operator price per API call / data request
      * @param _link - LINK token address on the corresponding network
      *
-     * Network: Rinkeby
-     * Oracle: 0xc57b33452b4f7bb189bb5afae9cc4aba1f7a4fd8
-     * Job ID: 6b88e0402e5d415eb946e528b8e0c7ba
+     * Rinkeby Testnet details:
+     * Link Token: 0x01BE23585060835E02B77ef475b0Cc51aA1e0709
+     * Oracle: 0xf3FBB7f3391F62C8fe53f89B41dFC8159EE9653f (Chainlink DevRel)
+     * JobId: ca98366cc7314957b8c012c72f05aeeb
      * Fee: 0.1 LINK
      */
     constructor(
