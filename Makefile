@@ -1,5 +1,7 @@
 -include .env
 
+.PHONY: all test clean
+
 all: clean remove install update build
 
 # Clean the repo
