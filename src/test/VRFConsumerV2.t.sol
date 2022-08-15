@@ -32,6 +32,7 @@ contract VRFConsumerV2Test is Test {
             address(linkToken),
             keyHash
         );
+        vrfCoordinator.addConsumer(subId, address(vrfConsumer));
     }
 
     function testCanRequestRandomness() public {
