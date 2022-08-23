@@ -98,7 +98,7 @@ contract APIConsumer is ChainlinkClient {
         recordChainlinkFulfillment(_requestId)
     {
         volume = _volume;
-        emit DataFullfilled(volume);
+        emit DataFullfilled(_volume);
     }
 
     /**
