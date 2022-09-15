@@ -33,12 +33,7 @@ contract DeployAPIConsumer is Script, HelperConfig {
 
         vm.startBroadcast();
 
-        new APIConsumer(
-            oracle,
-            jobId,
-            chainlinkFee,
-            link
-        );
+        new APIConsumer(oracle, jobId, chainlinkFee, link);
 
         vm.stopBroadcast();
     }
