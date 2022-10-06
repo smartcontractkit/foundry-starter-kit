@@ -47,6 +47,8 @@ contract VRFConsumerV2Test is Test {
 
         uint256[] memory words = getWords(requestId);
 
+        // When testing you MUST call fulfillRandomness youself to get the
+        // randomness to the consumer contract
         vrfCoordinator.fulfillRandomWords(requestId, address(vrfConsumer));
         assertTrue(vrfConsumer.s_randomWords(0) == words[0]);
         assertTrue(vrfConsumer.s_randomWords(1) == words[1]);
@@ -59,6 +61,8 @@ contract VRFConsumerV2Test is Test {
 
         cheats.expectEmit(false, false, false, true);
         emit ReturnedRandomness(words);
+        // When testing you MUST call fulfillRandomness youself to get the
+        // randomness to the consumer contract
         vrfCoordinator.fulfillRandomWords(requestId, address(vrfConsumer));
     }
 
