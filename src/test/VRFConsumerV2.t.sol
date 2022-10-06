@@ -61,7 +61,7 @@ contract VRFConsumerV2Test is Test {
 
         cheats.expectEmit(false, false, false, true);
         emit ReturnedRandomness(words);
-        // When testing you MUST call fulfillRandomness youself to get the
+        // When testing locally you MUST call fulfillRandomness youself to get the
          // randomness to the consumer contract, since there isn't a chainlink node on your local network
         vrfCoordinator.fulfillRandomWords(requestId, address(vrfConsumer));
     }
