@@ -48,7 +48,7 @@ contract VRFConsumerV2Test is Test {
         uint256[] memory words = getWords(requestId);
 
         // When testing locally you MUST call fulfillRandomness youself to get the
-        // randomness to the consumer contract
+        // randomness to the consumer contract, since there isn't a chainlink node on your local network
         vrfCoordinator.fulfillRandomWords(requestId, address(vrfConsumer));
         assertTrue(vrfConsumer.s_randomWords(0) == words[0]);
         assertTrue(vrfConsumer.s_randomWords(1) == words[1]);
