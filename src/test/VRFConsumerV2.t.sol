@@ -47,7 +47,7 @@ contract VRFConsumerV2Test is Test {
 
         uint256[] memory words = getWords(requestId);
 
-        // When testing you MUST call fulfillRandomness youself to get the
+        // When testing locally you MUST call fulfillRandomness youself to get the
         // randomness to the consumer contract
         vrfCoordinator.fulfillRandomWords(requestId, address(vrfConsumer));
         assertTrue(vrfConsumer.s_randomWords(0) == words[0]);
