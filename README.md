@@ -1,4 +1,4 @@
-*Note: This repo has been recently updated for Goerli*
+*Note: This repo has been recently updated for Sepolia*
 
 # Foundry Starter Kit
 
@@ -73,37 +73,36 @@ Deploying to a network uses the [foundry scripting system](https://book.getfound
 
 ## Setup
 
-We'll demo using the Goerli testnet. (Go here for [testnet goerli ETH](https://faucets.chain.link/).)
+We'll demo using the Sepolia testnet. (Go here for [testnet sepolia ETH](https://faucets.chain.link/).)
 
 You'll need to add the following variables to a `.env` file:
 
--   `GOERLI_RPC_URL`: A URL to connect to the blockchain. You can get one for free from [Alchemy](https://www.alchemy.com/). 
--   `PRIVATE_KEY`: A private key from your wallet. You can get a private key from a new [Metamask](https://metamask.io/) account
+-   `SEPOLIA_RPC_URL`: A URL to connect to the blockchain. You can get one for free from [Infura](https://www.infura.io/) account
     -   Additionally, if you want to deploy to a testnet, you'll need test ETH and/or LINK. You can get them from [faucets.chain.link](https://faucets.chain.link/).
 -   Optional `ETHERSCAN_API_KEY`: If you want to verify on etherscan
 
 ## Deploying
 
 ```
-make deploy-goerli contract=<CONTRACT_NAME>
+make deploy-sepolia contract=<CONTRACT_NAME>
 ```
 
 For example:
 
 ```
-make deploy-goerli contract=PriceFeedConsumer
+make deploy-sepolia contract=PriceFeedConsumer
 ```
 
 This will run the forge script, the script it's running is:
 
 ```
-@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${GOERLI_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast --verify --etherscan-api-key ${ETHERSCAN_API_KEY}  -vvvv
+@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${SEPOLIA_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast --verify --etherscan-api-key ${ETHERSCAN_API_KEY}  -vvvv
 ```
 
 If you don't have an `ETHERSCAN_API_KEY`, you can also just run:
 
 ```
-@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${GOERLI_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast 
+@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${SEPOLIA_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast 
 ```
 
 These pull from the files in the `script` folder. 
@@ -126,7 +125,7 @@ Then, you can deploy to it with:
 make deploy-anvil contract=<CONTRACT_NAME>
 ```
 
-Similar to `deploy-goerli`
+Similar to `deploy-sepolia`
 
 ### Working with other chains
 
