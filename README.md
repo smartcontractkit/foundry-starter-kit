@@ -78,6 +78,7 @@ We'll demo using the Sepolia testnet. (Go here for [testnet sepolia ETH](https:/
 You'll need to add the following variables to a `.env` file:
 
 -   `SEPOLIA_RPC_URL`: A URL to connect to the blockchain. You can get one for free from [Infura](https://www.infura.io/) account
+-   `PRIVATE_KEY`: A private key from your wallet. You can get a private key from a new [Metamask](https://metamask.io/) account
     -   Additionally, if you want to deploy to a testnet, you'll need test ETH and/or LINK. You can get them from [faucets.chain.link](https://faucets.chain.link/).
 -   Optional `ETHERSCAN_API_KEY`: If you want to verify on etherscan
 
