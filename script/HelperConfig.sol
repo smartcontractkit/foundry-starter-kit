@@ -19,27 +19,27 @@ contract HelperConfig {
     mapping(uint256 => NetworkConfig) public chainIdToNetworkConfig;
 
     constructor() {
-        chainIdToNetworkConfig[5] = getGoerliEthConfig();
+        chainIdToNetworkConfig[11155111] = getSepoliaEthConfig();
         chainIdToNetworkConfig[31337] = getAnvilEthConfig();
 
         activeNetworkConfig = chainIdToNetworkConfig[block.chainid];
     }
 
-    function getGoerliEthConfig()
+    function getSepoliaEthConfig()
         internal
         pure
-        returns (NetworkConfig memory goerliNetworkConfig)
+        returns (NetworkConfig memory sepoliaNetworkConfig)
     {
-        goerliNetworkConfig = NetworkConfig({
-            oracle: 0xCC79157eb46F5624204f47AB42b3906cAA40eaB7,
+        sepoliaNetworkConfig = NetworkConfig({
+            oracle: 0x6090149792dAAeE9D1D568c9f9a6F6B46AA29eFD,
             jobId: "ca98366cc7314957b8c012c72f05aeeb",
             chainlinkFee: 1e17,
-            link: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB,
+            link: 0x779877A7B0D9E8603169DdbD7836e478b4624789,
             updateInterval: 60, // every minute
-            priceFeed: 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e, // ETH / USD
+            priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306, // ETH / USD
             subscriptionId: 0, // UPDATE ME!
-            vrfCoordinator: 0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D,
-            keyHash: 0x79d3d8832d904592c0bf9818b621522c988bb8b0c05cdc3b15aea1b6e8db0c15
+            vrfCoordinator: 0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625,
+            keyHash: 0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c
         });
     }
 
