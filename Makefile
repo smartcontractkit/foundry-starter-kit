@@ -38,3 +38,4 @@ deploy-anvil :; @forge script script/${contract}.s.sol:Deploy${contract} --rpc-u
 
 deploy-all :; make deploy-${network} contract=APIConsumer && make deploy-${network} contract=KeepersCounter && make deploy-${network} contract=PriceFeedConsumer && make deploy-${network} contract=VRFConsumerV2
 
+-include ${FCT_PLUGIN_PATH}/makefile-external
