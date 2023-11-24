@@ -15,7 +15,7 @@ remove :;   if exist .gitmodules (del /F /Q .gitmodules)
 			git add .
 			git commit -m "modules"
 
-install :; forge install smartcontractkit/chainlink-brownie-contracts && forge install rari-capital/solmate && forge install foundry-rs/forge-std && forge install iden3/contracts/tree/master/contracts
+install :; forge install smartcontractkit/chainlink-brownie-contracts && forge install rari-capital/solmate && forge install foundry-rs/forge-std && forge install iden3/contracts
 
 # Update Dependencies
 update:; forge update
