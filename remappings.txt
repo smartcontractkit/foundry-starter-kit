@@ -4,4 +4,5 @@
 @chainlink/=lib/chainlink-brownie-contracts/
 @contracts/=lib/contracts/
 @openzeppelin/=lib/openzeppelin-contracts/
+@openzeppelin-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
 forge-std/=lib/forge-std/src/contracts/
