@@ -5,6 +5,7 @@
 @contracts/=lib/contracts/contracts/
 @openzeppelin/=lib/openzeppelin-contracts/
 @openzeppelin-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
+@solidity-bytes-utils/=lib/solidity-bytes-utils/contracts/
 forge-std/=lib/forge-std/src/contracts/
 @openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
 @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
@@ -14,3 +15,5 @@ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/
 openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/
 openzeppelin-contracts/=lib/openzeppelin-contracts/
 solmate/=lib/solmate/src/
+
+

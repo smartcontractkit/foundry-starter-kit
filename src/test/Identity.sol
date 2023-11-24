@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity > 0.8.16;
+pragma solidity >=0.8.0 <0.9.0;
 import {OwnableUpgradeable} from "@openzeppelin-upgradeable/access/OwnableUpgradeable.sol";
 import {IState} from "@contracts/interfaces/IState.sol";
 import {ClaimBuilder} from "@contracts/lib/ClaimBuilder.sol";
@@ -24,7 +24,7 @@ contract IdentityExample is IdentityBase, OwnableUpgradeable {
 
     function initialize(address _stateContractAddr) public override initializer {
         super.initialize(_stateContractAddr);
-        __Ownable_init();
+        __Ownable_init(_stateContractAddr);
     }
 
     function addClaimAndTransit(uint256[8] calldata claim) public onlyOwner {
