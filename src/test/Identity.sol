@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity > 0.8.16;
-
 import {OwnableUpgradeable} from "@openzeppelin-upgradeable/access/OwnableUpgradeable.sol";
-import {IState} from "../interfaces/IState.sol";
-import {ClaimBuilder} from "../lib/ClaimBuilder.sol";
-import {IdentityLib} from "../lib/IdentityLib.sol";
-import {IdentityBase} from "../lib/IdentityBase.sol";
+import {IState} from "@contracts/interfaces/IState.sol";
+import {ClaimBuilder} from "@contracts/lib/ClaimBuilder.sol";
+import {IdentityLib} from "@contracts/lib/IdentityLib.sol";
+import {IdentityBase} from "@contracts/lib/IdentityBase.sol";
 
 // /**
 //  * @dev Contract managing onchain identity
