@@ -8,7 +8,12 @@ all: clean remove install update build
 clean  :; forge clean
 
 # Remove modules
-remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
+remove :;   if exist .gitmodules (del /F /Q .gitmodules)
+			if exist .git\modules\ (for /D %%i in (.git\modules\*) do rmdir /S /Q "%%i")
+			if exist lib (rmdir /S /Q lib)
+			type nul > .gitmodules
+			git add .
+			git commit -m "modules"
 
 install :; forge install smartcontractkit/chainlink-brownie-contracts && forge install rari-capital/solmate && forge install foundry-rs/forge-std
 
