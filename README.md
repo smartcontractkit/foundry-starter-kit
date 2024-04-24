@@ -51,7 +51,6 @@ And you probably already have `make` installed... but if not [try looking here.]
 ```sh
 git clone https://github.com/smartcontractkit/foundry-starter-kit
 cd foundry-starter-kit
-make # This installs the project's dependencies.
 make test
 ```
 
