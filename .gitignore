@@ -11,3 +11,15 @@ package-lock.json
 
 .DS_Store
 src/.DS_Store
+lib/chainlink-brownie-contracts
+lib/contracts
+lib/openzeppelin-contracts
+lib/openzeppelin-contracts-upgradeable
+lib/openzeppelin-contracts-upgradeable
+lib/openzeppelin-contracts
+lib/contracts
+lib/chainlink-brownie-contracts
+lib/openzeppelin-contracts-upgradeable
+lib/openzeppelin-contracts
+lib/contracts
+lib/chainlink-brownie-contracts
