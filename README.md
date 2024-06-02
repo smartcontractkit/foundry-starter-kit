@@ -173,6 +173,7 @@ Contributions are always welcome! Open a PR or an issue!
 
 -   [Chainlink Documentation](https://docs.chain.link/)
 -   [Foundry Documentation](https://book.getfoundry.sh/)
+-   [Chainlink Foundry Toolkit](https://github.com/smartcontractkit/foundry-chainlink-plugin)
 
 ### TODO
 
