@@ -10,7 +10,7 @@ contract KeepersCounterTest is Test {
     KeepersCounter public counter;
     uint256 public staticTime;
     uint256 public INTERVAL;
-    Cheats internal constant cheats = Cheats(HEVM_ADDRESS);
+    Cheats internal constant cheats = Cheats(VM_ADDRESS);
 
     function setUp() public {
         staticTime = block.timestamp;
