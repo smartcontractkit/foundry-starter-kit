@@ -11,7 +11,7 @@ contract VRFConsumerV2Test is Test {
     LinkToken public linkToken;
     MockVRFCoordinatorV2 public vrfCoordinator;
     VRFConsumerV2 public vrfConsumer;
-    Cheats internal constant cheats = Cheats(HEVM_ADDRESS);
+    Cheats internal constant cheats = Cheats(VM_ADDRESS);
 
     uint96 constant FUND_AMOUNT = 1 * 10**18;
 

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "@chainlink/contracts/src/v0.8/interfaces/KeeperCompatibleInterface.sol";
+import "@chainlink/contracts/src/v0.8/automation/interfaces/KeeperCompatibleInterface.sol";
 
 contract KeepersCounter is KeeperCompatibleInterface {
     uint256 public counter;
