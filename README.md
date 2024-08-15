@@ -55,6 +55,13 @@ make # This installs the project's dependencies.
 make test
 ```
 
+## Install dependencies as follows:
+1. `forge install foundry-rs/forge-std --no-commit` and `forge install transmissions11/solmate`
+
+2. `forge install smartcontractkit/chainlink-brownie-contracts --no-commit`
+
+3. `forge install smartcontractkit/foundry-chainlink-toolkit --no-commit`
+
 ## Testing
 
 ```
