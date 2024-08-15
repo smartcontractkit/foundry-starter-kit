@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "../KeepersCounter.sol";
+import "../src/KeepersCounter.sol";
 import "forge-std/Test.sol";
 import "./utils/Cheats.sol";
 
