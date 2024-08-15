@@ -56,11 +56,15 @@ make test
 ```
 
 ## Install dependencies as follows:
-1. `forge install foundry-rs/forge-std --no-commit` and `forge install transmissions11/solmate`
+You can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes. 
 
-2. `forge install smartcontractkit/chainlink-brownie-contracts --no-commit`
+1. `forge install foundry-rs/forge-std  << --no-commit  >>` and `forge install transmissions11/solmate << --no-commit  >>`
 
-3. `forge install smartcontractkit/foundry-chainlink-toolkit --no-commit`
+2. `forge install smartcontractkit/chainlink-brownie-contracts << --no-commit  >>`
+
+3. `forge install smartcontractkit/foundry-chainlink-toolkit << --no-commit  >>`
+
+
 
 ## Testing
 
