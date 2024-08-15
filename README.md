@@ -43,15 +43,11 @@ Please install the following:
   - You can test you've installed them right by running `forge --version` and get an output like: `forge 0.2.0 (f016135 2022-07-04T00:15:02.930499Z)`
   - To get the latest of each, just run `foundryup`
 
-And you probably already have `make` installed... but if not [try looking here.](https://askubuntu.com/questions/161104/how-do-i-install-make)
-
 ## Quickstart
 
 ```sh
 git clone https://github.com/smartcontractkit/foundry-starter-kit
 cd foundry-starter-kit
-make # This installs the project's dependencies.
-make test
 ```
 
 ## Install dependencies as follows:
@@ -64,13 +60,9 @@ You can add the `--no-commit` flag to each of these `install` commands if your w
 
 3. `forge install smartcontractkit/foundry-chainlink-toolkit << --no-commit  >>`
 
+You can update dependencies by running `forge update`
+
 ## Testing
-
-```
-make test
-```
-
-or
 
 ```
 forge test
@@ -85,7 +77,7 @@ Implementation of the following 4 Chainlink services using the [Foundry] (https:
 - [Chainlink Automation](https://docs.chain.link/chainlink-automation/introduction)
 - [Request & Receive data (AnyAPI)](https://docs.chain.link/any-api/introduction)
 
-For [Chainlink Functions](https://docs.chain.link/chainlink-functions) please go to these tarter kits: [Hardhat](https://github.com/smartcontractkit/functions-hardhat-starter-kit) | [Foundry (coming soon)](https://github.com/smartcontractkit/functions-foundry-starter-kit)
+For [Chainlink Functions](https://docs.chain.link/chainlink-functions) please go to these starter kits: [Hardhat](https://github.com/smartcontractkit/functions-hardhat-starter-kit) | [Foundry (coming soon)](https://github.com/smartcontractkit/functions-foundry-starter-kit)
 
 For [Chainlink CCIP (Cross Chain Interoperability Prototocol)](https://docs.chain.link/ccip) please go to these starter kits: [Hardhat](https://github.com/smartcontractkit/ccip-starter-kit-hardhat) | [Foundry](https://github.com/smartcontractkit/ccip-starter-kit-foundry)
 
@@ -104,58 +96,53 @@ You'll need to add the following variables to a `.env` file:
   - Additionally, if you want to deploy to a testnet, you'll need test ETH and/or LINK. You can get them from [faucets.chain.link](https://faucets.chain.link/).
 - Optional `ETHERSCAN_API_KEY`: If you want to verify on etherscan
 
+When you've added your environment variables to the `.env` file, run `source .env` in your terminal (and for each new terminal session) to load the environment variables into your terminal.
+
 ## Deploying
 
+Deploy scripts are in `./script`. The relevant Chainlink Service can be determined from the name of the Contract script. `HelperConfig` is not meant to be deployed.
+
+To deploy one of the Chainlink Service consumer contracts run the script as follows:
+
 ```
+forge script script/${CONTRACT_NAME}.s.sol:Deploy${CONTRACT_NAME} --rpc-url $SEPOLIA_RPC_URL  --private-key PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY  -vvvv
 make deploy-sepolia contract=<CONTRACT_NAME>
 ```
 
-For example:
+For example, to deploy the `PriceFeedConsumer` contract:
 
 ```
-make deploy-sepolia contract=PriceFeedConsumer
+forge script script/PriceFeedConsumer.s.sol:DeployPriceFeedConsumer  --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY -vvvv
 ```
 
-This will run the forge script, the script it's running is:
+If you don't have an `ETHERSCAN_API_KEY`, you can omit `--verify --etherscan-api-key $ETHERSCAN_API_KEY`
 
-```
-@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${SEPOLIA_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast --verify --etherscan-api-key ${ETHERSCAN_API_KEY}  -vvvv
-```
 
-If you don't have an `ETHERSCAN_API_KEY`, you can also just run:
-
-```
-@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${SEPOLIA_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast
-```
-
-These pull from the files in the `script` folder.
-
-### Working with a local network
+### Working with Anvil local development network
 
 Foundry comes with local network [anvil](https://book.getfoundry.sh/anvil/index.html) baked in, and allows us to deploy to our local network for quick testing locally.
 
-To start a local network run:
+To start a local network run the following in a new terminal window or tab:
 
 ```
-make anvil
+anvil
 ```
 
-This will spin up a local blockchain with a determined private key, so you can use the same private key each time.
+This will spin up a local blockchain on `http://localhost:8545` :  (see console output for the mnemonic used, and 10 private keys and their associated wallet address), so you can use the same private key each time.
 
-Then, you can deploy to it with:
+Then, you can deploy to it with one of those private keys; in this example we use the first one:
 
 ```
-make deploy-anvil contract=<CONTRACT_NAME>
+forge script script/${contract}.s.sol:Deploy${contract} --rpc-url http://localhost:8545  --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --broadcast 
 ```
 
-Similar to `deploy-sepolia`
 
 ### Working with other chains
 
-To add a chain, you'd just need to make a new entry in the `Makefile`, and replace `<YOUR_CHAIN>` with whatever your chain's information is.
+To add a chain, you'd just need to pass in the RPC URL for the relevant chain to the `--rpc-url` flag.
 
 ```
-deploy-<YOUR_CHAIN> :; @forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${<YOUR_CHAIN>_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast -vvvv
+forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${<OTHER_CHAIN>_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast -vvvv
 
 ```
 
