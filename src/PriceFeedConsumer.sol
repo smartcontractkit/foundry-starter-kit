@@ -26,11 +26,10 @@ contract PriceFeedConsumer {
             int256 price,
             ,
             ,
-
         ) = /* uint256 startedAt */
-            /* uint256 timeStamp */
-            /* uint80 answeredInRound */
-            priceFeed.latestRoundData();
+        /* uint256 timeStamp */
+        /* uint80 answeredInRound */
+         priceFeed.latestRoundData();
         return price;
     }
 

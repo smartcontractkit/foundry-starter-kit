@@ -11,17 +11,7 @@ contract DeployAPIConsumer is Script, HelperConfig {
     function run() external {
         HelperConfig helperConfig = new HelperConfig();
 
-        (
-            address oracle,
-            bytes32 jobId,
-            uint256 chainlinkFee,
-            address link,
-            ,
-            ,
-            ,
-            ,
-
-        ) = helperConfig.activeNetworkConfig();
+        (address oracle, bytes32 jobId, uint256 chainlinkFee, address link,,,,,) = helperConfig.activeNetworkConfig();
 
         if (link == address(0)) {
             link = address(new LinkToken());

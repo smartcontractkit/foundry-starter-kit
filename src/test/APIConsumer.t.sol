@@ -16,18 +16,13 @@ contract APIConsumerTest is Test {
     uint256 fee;
     bytes32 blank_bytes32;
 
-    uint256 constant AMOUNT = 1 * 10**18;
+    uint256 constant AMOUNT = 1 * 10 ** 18;
     uint256 constant RESPONSE = 777;
 
     function setUp() public {
         linkToken = new LinkToken();
         mockOracle = new MockOracle(address(linkToken));
-        apiConsumer = new APIConsumer(
-            address(mockOracle),
-            jobId,
-            fee,
-            address(linkToken)
-        );
+        apiConsumer = new APIConsumer(address(mockOracle), jobId, fee, address(linkToken));
         linkToken.transfer(address(apiConsumer), AMOUNT);
     }
 

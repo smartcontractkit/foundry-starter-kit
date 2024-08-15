@@ -11,8 +11,7 @@ abstract contract LinkTokenReceiver {
     bytes4 private constant ORACLE_REQUEST_SELECTOR = 0x40429946;
     uint256 private constant SELECTOR_LENGTH = 4;
     uint256 private constant EXPECTED_REQUEST_WORDS = 2;
-    uint256 private constant MINIMUM_REQUEST_LENGTH =
-        SELECTOR_LENGTH + (32 * EXPECTED_REQUEST_WORDS);
+    uint256 private constant MINIMUM_REQUEST_LENGTH = SELECTOR_LENGTH + (32 * EXPECTED_REQUEST_WORDS);
 
     /**
      * @notice Called when LINK is sent to the contract via `transferAndCall`
@@ -22,11 +21,7 @@ abstract contract LinkTokenReceiver {
      * @param _amount Amount of LINK sent (specified in wei)
      * @param _data Payload of the transaction
      */
-    function onTokenTransfer(
-        address _sender,
-        uint256 _amount,
-        bytes memory _data
-    )
+    function onTokenTransfer(address _sender, uint256 _amount, bytes memory _data)
         public
         onlyLINK
         validRequestLength(_data)
@@ -39,7 +34,7 @@ abstract contract LinkTokenReceiver {
             mstore(add(_data, 68), _amount) // ensure correct amount is passed
         }
         // solhint-disable-next-line avoid-low-level-calls
-        (bool success, ) = address(this).delegatecall(_data); // calls oracleRequest
+        (bool success,) = address(this).delegatecall(_data); // calls oracleRequest
         require(success, "Unable to create request");
     }
 
@@ -63,10 +58,7 @@ abstract contract LinkTokenReceiver {
             // solhint-disable-next-line avoid-low-level-calls
             funcSelector := mload(add(_data, 32))
         }
-        require(
-            funcSelector == ORACLE_REQUEST_SELECTOR,
-            "Must use whitelisted functions"
-        );
+        require(funcSelector == ORACLE_REQUEST_SELECTOR, "Must use whitelisted functions");
         _;
     }
 
@@ -75,10 +67,7 @@ abstract contract LinkTokenReceiver {
      * @param _data The request payload
      */
     modifier validRequestLength(bytes memory _data) {
-        require(
-            _data.length >= MINIMUM_REQUEST_LENGTH,
-            "Invalid request length"
-        );
+        require(_data.length >= MINIMUM_REQUEST_LENGTH, "Invalid request length");
         _;
     }
 }
@@ -146,10 +135,7 @@ contract MockOracle is ChainlinkRequestInterface, LinkTokenReceiver {
         bytes calldata _data
     ) external override onlyLINK checkCallbackAddress(_callbackAddress) {
         bytes32 requestId = keccak256(abi.encodePacked(_sender, _nonce));
-        require(
-            commitments[requestId].callbackAddr == address(0),
-            "Must use a unique ID"
-        );
+        require(commitments[requestId].callbackAddr == address(0), "Must use a unique ID");
         // solhint-disable-next-line not-rely-on-time
         uint256 expiration = block.timestamp + EXPIRY_TIME;
 
@@ -184,16 +170,11 @@ contract MockOracle is ChainlinkRequestInterface, LinkTokenReceiver {
     {
         Request memory req = commitments[_requestId];
         delete commitments[_requestId];
-        require(
-            gasleft() >= MINIMUM_CONSUMER_GAS_LIMIT,
-            "Must provide consumer enough gas"
-        );
+        require(gasleft() >= MINIMUM_CONSUMER_GAS_LIMIT, "Must provide consumer enough gas");
         // All updates to the oracle's fulfillment should come before calling the
         // callback(addr+functionId) as it is untrusted.
         // See: https://solidity.readthedocs.io/en/develop/security-considerations.html#use-the-checks-effects-interactions-pattern
-        (bool success, ) = req.callbackAddr.call(
-            abi.encodeWithSelector(req.callbackFunctionId, _requestId, _data)
-        ); // solhint-disable-line avoid-low-level-calls
+        (bool success,) = req.callbackAddr.call(abi.encodeWithSelector(req.callbackFunctionId, _requestId, _data)); // solhint-disable-line avoid-low-level-calls
         return success;
     }
 
@@ -206,16 +187,8 @@ contract MockOracle is ChainlinkRequestInterface, LinkTokenReceiver {
      * @param _payment The amount of payment given (specified in wei)
      * @param _expiration The time of the expiration for the request
      */
-    function cancelOracleRequest(
-        bytes32 _requestId,
-        uint256 _payment,
-        bytes4,
-        uint256 _expiration
-    ) external override {
-        require(
-            commitments[_requestId].callbackAddr != address(0),
-            "Must use a unique ID"
-        );
+    function cancelOracleRequest(bytes32 _requestId, uint256 _payment, bytes4, uint256 _expiration) external override {
+        require(commitments[_requestId].callbackAddr != address(0), "Must use a unique ID");
         // solhint-disable-next-line not-rely-on-time
         require(_expiration <= block.timestamp, "Request is not expired");
 
@@ -241,10 +214,7 @@ contract MockOracle is ChainlinkRequestInterface, LinkTokenReceiver {
      * @param _requestId The given request ID to check in stored `commitments`
      */
     modifier isValidRequest(bytes32 _requestId) {
-        require(
-            commitments[_requestId].callbackAddr != address(0),
-            "Must have a valid requestId"
-        );
+        require(commitments[_requestId].callbackAddr != address(0), "Must have a valid requestId");
         _;
     }
 

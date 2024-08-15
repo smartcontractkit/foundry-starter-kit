@@ -13,8 +13,7 @@ contract DeployPriceFeedConsumer is Script, HelperConfig {
     function run() external {
         HelperConfig helperConfig = new HelperConfig();
 
-        (, , , , , address priceFeed, , , ) = helperConfig
-            .activeNetworkConfig();
+        (,,,,, address priceFeed,,,) = helperConfig.activeNetworkConfig();
 
         if (priceFeed == address(0)) {
             priceFeed = address(new MockV3Aggregator(DECIMALS, INITIAL_ANSWER));

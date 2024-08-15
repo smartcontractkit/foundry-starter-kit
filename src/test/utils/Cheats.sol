@@ -9,20 +9,11 @@ abstract contract Cheats {
     function roll(uint256 x) public virtual;
 
     // sets the slot loc of contract c to val
-    function store(
-        address c,
-        bytes32 loc,
-        bytes32 val
-    ) public virtual;
+    function store(address c, bytes32 loc, bytes32 val) public virtual;
 
     function ffi(string[] calldata) external virtual returns (bytes memory);
 
-    function expectEmit(
-        bool,
-        bool,
-        bool,
-        bool
-    ) external virtual;
+    function expectEmit(bool, bool, bool, bool) external virtual;
 
     function expectRevert(bytes calldata msg) external virtual;
 }

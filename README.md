@@ -1,4 +1,4 @@
-*Note: This repo has been recently updated for Sepolia*
+_Note: This repo has been recently updated for Sepolia_
 
 # Foundry Starter Kit
 
@@ -13,7 +13,6 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/smartcontractkit/foundry-starter-kit)
 
 Foundry Starter Kit is a repo that shows developers how to quickly build, test, and deploy smart contracts with one of the fastest frameworks out there, [foundry](https://github.com/gakonst/foundry)!
-
 
 - [Foundry Starter Kit](#foundry-starter-kit)
 - [Getting Started](#getting-started)
@@ -37,12 +36,12 @@ Foundry Starter Kit is a repo that shows developers how to quickly build, test, 
 
 Please install the following:
 
--   [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)  
-    -   You'll know you've done it right if you can run `git --version`
--   [Foundry / Foundryup](https://github.com/gakonst/foundry)
-    -   This will install `forge`, `cast`, and `anvil`
-    -   You can test you've installed them right by running `forge --version` and get an output like: `forge 0.2.0 (f016135 2022-07-04T00:15:02.930499Z)`
-    -   To get the latest of each, just run `foundryup`
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you've done it right if you can run `git --version`
+- [Foundry / Foundryup](https://github.com/gakonst/foundry)
+  - This will install `forge`, `cast`, and `anvil`
+  - You can test you've installed them right by running `forge --version` and get an output like: `forge 0.2.0 (f016135 2022-07-04T00:15:02.930499Z)`
+  - To get the latest of each, just run `foundryup`
 
 And you probably already have `make` installed... but if not [try looking here.](https://askubuntu.com/questions/161104/how-do-i-install-make)
 
@@ -56,15 +55,14 @@ make test
 ```
 
 ## Install dependencies as follows:
-You can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes. 
+
+You can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes.
 
 1. `forge install foundry-rs/forge-std  << --no-commit  >>` and `forge install transmissions11/solmate << --no-commit  >>`
 
 2. `forge install smartcontractkit/chainlink-brownie-contracts << --no-commit  >>`
 
 3. `forge install smartcontractkit/foundry-chainlink-toolkit << --no-commit  >>`
-
-
 
 ## Testing
 
@@ -79,14 +77,15 @@ forge test
 ```
 
 # Chainlink Foundry Starter Kit
- Implementation of the following 4 Chainlink services using the [Foundry] (https://book.getfoundry.sh/) smart contract development tooling:
- - [Chainlink Price Feeds](https://docs.chain.link/docs/using-chainlink-reference-contracts)
- - [Chainlink VRF V2](https://docs.chain.link/docs/chainlink-vrf)
- - [Chainlink Automation](https://docs.chain.link/chainlink-automation/introduction)
- - [Request & Receive data (AnyAPI)](https://docs.chain.link/any-api/introduction)
 
+Implementation of the following 4 Chainlink services using the [Foundry] (https://book.getfoundry.sh/) smart contract development tooling:
 
-For [Chainlink Functions](https://docs.chain.link/chainlink-functions) please go to these tarter kits: [Hardhat](https://github.com/smartcontractkit/functions-hardhat-starter-kit)  |  [Foundry (coming soon)](https://github.com/smartcontractkit/functions-foundry-starter-kit)
+- [Chainlink Price Feeds](https://docs.chain.link/docs/using-chainlink-reference-contracts)
+- [Chainlink VRF V2](https://docs.chain.link/docs/chainlink-vrf)
+- [Chainlink Automation](https://docs.chain.link/chainlink-automation/introduction)
+- [Request & Receive data (AnyAPI)](https://docs.chain.link/any-api/introduction)
+
+For [Chainlink Functions](https://docs.chain.link/chainlink-functions) please go to these tarter kits: [Hardhat](https://github.com/smartcontractkit/functions-hardhat-starter-kit) | [Foundry (coming soon)](https://github.com/smartcontractkit/functions-foundry-starter-kit)
 
 For [Chainlink CCIP (Cross Chain Interoperability Prototocol)](https://docs.chain.link/ccip) please go to these starter kits: [Hardhat](https://github.com/smartcontractkit/ccip-starter-kit-hardhat) | [Foundry](https://github.com/smartcontractkit/ccip-starter-kit-foundry)
 
@@ -100,10 +99,10 @@ We'll demo using the Sepolia testnet. (Go here for [testnet sepolia ETH](https:/
 
 You'll need to add the following variables to a `.env` file:
 
--   `SEPOLIA_RPC_URL`: A URL to connect to the blockchain. You can get one for free from [Infura](https://www.infura.io/) account
--   `PRIVATE_KEY`: A private key from your wallet. You can get a private key from a new [Metamask](https://metamask.io/) account
-    -   Additionally, if you want to deploy to a testnet, you'll need test ETH and/or LINK. You can get them from [faucets.chain.link](https://faucets.chain.link/).
--   Optional `ETHERSCAN_API_KEY`: If you want to verify on etherscan
+- `SEPOLIA_RPC_URL`: A URL to connect to the blockchain. You can get one for free from [Infura](https://www.infura.io/) account
+- `PRIVATE_KEY`: A private key from your wallet. You can get a private key from a new [Metamask](https://metamask.io/) account
+  - Additionally, if you want to deploy to a testnet, you'll need test ETH and/or LINK. You can get them from [faucets.chain.link](https://faucets.chain.link/).
+- Optional `ETHERSCAN_API_KEY`: If you want to verify on etherscan
 
 ## Deploying
 
@@ -126,14 +125,14 @@ This will run the forge script, the script it's running is:
 If you don't have an `ETHERSCAN_API_KEY`, you can also just run:
 
 ```
-@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${SEPOLIA_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast 
+@forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${SEPOLIA_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast
 ```
 
-These pull from the files in the `script` folder. 
+These pull from the files in the `script` folder.
 
 ### Working with a local network
 
-Foundry comes with local network [anvil](https://book.getfoundry.sh/anvil/index.html) baked in, and allows us to deploy to our local network for quick testing locally. 
+Foundry comes with local network [anvil](https://book.getfoundry.sh/anvil/index.html) baked in, and allows us to deploy to our local network for quick testing locally.
 
 To start a local network run:
 
@@ -141,7 +140,7 @@ To start a local network run:
 make anvil
 ```
 
-This will spin up a local blockchain with a determined private key, so you can use the same private key each time. 
+This will spin up a local blockchain with a determined private key, so you can use the same private key each time.
 
 Then, you can deploy to it with:
 
@@ -153,7 +152,7 @@ Similar to `deploy-sepolia`
 
 ### Working with other chains
 
-To add a chain, you'd just need to make a new entry in the `Makefile`, and replace `<YOUR_CHAIN>` with whatever your chain's information is. 
+To add a chain, you'd just need to make a new entry in the `Makefile`, and replace `<YOUR_CHAIN>` with whatever your chain's information is.
 
 ```
 deploy-<YOUR_CHAIN> :; @forge script script/${contract}.s.sol:Deploy${contract} --rpc-url ${<YOUR_CHAIN>_RPC_URL}  --private-key ${PRIVATE_KEY} --broadcast -vvvv
@@ -170,20 +169,19 @@ Then, you can run:
 make slither
 ```
 
-And get your slither output. 
-
-
+And get your slither output.
 
 # Contributing
 
 Contributions are always welcome! Open a PR or an issue!
+If you do contribute please add `solidity.formatter": "forge` to your VSCode Settings, or run `forge fmt` before you commit and push.
 
 # Thank You!
 
 ## Resources
 
--   [Chainlink Documentation](https://docs.chain.link/)
--   [Foundry Documentation](https://book.getfoundry.sh/)
+- [Chainlink Documentation](https://docs.chain.link/)
+- [Foundry Documentation](https://book.getfoundry.sh/)
 
 ### TODO
 

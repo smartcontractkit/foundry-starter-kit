@@ -25,11 +25,7 @@ contract HelperConfig {
         activeNetworkConfig = chainIdToNetworkConfig[block.chainid];
     }
 
-    function getSepoliaEthConfig()
-        internal
-        pure
-        returns (NetworkConfig memory sepoliaNetworkConfig)
-    {
+    function getSepoliaEthConfig() internal pure returns (NetworkConfig memory sepoliaNetworkConfig) {
         sepoliaNetworkConfig = NetworkConfig({
             oracle: 0x6090149792dAAeE9D1D568c9f9a6F6B46AA29eFD,
             jobId: "ca98366cc7314957b8c012c72f05aeeb",
@@ -43,11 +39,7 @@ contract HelperConfig {
         });
     }
 
-    function getAnvilEthConfig()
-        internal
-        pure
-        returns (NetworkConfig memory anvilNetworkConfig)
-    {
+    function getAnvilEthConfig() internal pure returns (NetworkConfig memory anvilNetworkConfig) {
         anvilNetworkConfig = NetworkConfig({
             oracle: address(0), // This is a mock
             jobId: "6b88e0402e5d415eb946e528b8e0c7ba",
