@@ -9,8 +9,7 @@ contract DeployKeepersCounter is Script, HelperConfig {
     function run() external {
         HelperConfig helperConfig = new HelperConfig();
 
-        (, , , , uint256 updateInterval, , , , ) = helperConfig
-            .activeNetworkConfig();
+        (,,,, uint256 updateInterval,,,,) = helperConfig.activeNetworkConfig();
 
         vm.startBroadcast();
 

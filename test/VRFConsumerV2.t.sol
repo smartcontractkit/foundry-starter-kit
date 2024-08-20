@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../VRFConsumerV2.sol";
+import "../src/VRFConsumerV2.sol";
 import "./mocks/MockVRFCoordinatorV2.sol";
 import "./mocks/LinkToken.sol";
 import "./utils/Cheats.sol";
@@ -13,7 +13,7 @@ contract VRFConsumerV2Test is Test {
     VRFConsumerV2 public vrfConsumer;
     Cheats internal constant cheats = Cheats(VM_ADDRESS);
 
-    uint96 constant FUND_AMOUNT = 1 * 10**18;
+    uint96 constant FUND_AMOUNT = 1 * 10 ** 18;
 
     // Initialized as blank, fine for testing
     uint64 subId;
@@ -26,12 +26,7 @@ contract VRFConsumerV2Test is Test {
         vrfCoordinator = new MockVRFCoordinatorV2();
         subId = vrfCoordinator.createSubscription();
         vrfCoordinator.fundSubscription(subId, FUND_AMOUNT);
-        vrfConsumer = new VRFConsumerV2(
-            subId,
-            address(vrfCoordinator),
-            address(linkToken),
-            keyHash
-        );
+        vrfConsumer = new VRFConsumerV2(subId, address(vrfCoordinator), address(linkToken), keyHash);
         vrfCoordinator.addConsumer(subId, address(vrfConsumer));
     }
 
@@ -62,15 +57,11 @@ contract VRFConsumerV2Test is Test {
         cheats.expectEmit(false, false, false, true);
         emit ReturnedRandomness(words);
         // When testing locally you MUST call fulfillRandomness youself to get the
-         // randomness to the consumer contract, since there isn't a chainlink node on your local network
+        // randomness to the consumer contract, since there isn't a chainlink node on your local network
         vrfCoordinator.fulfillRandomWords(requestId, address(vrfConsumer));
     }
 
-    function getWords(uint256 requestId)
-        public
-        view
-        returns (uint256[] memory)
-    {
+    function getWords(uint256 requestId) public view returns (uint256[] memory) {
         uint256[] memory words = new uint256[](vrfConsumer.s_numWords());
         for (uint256 i = 0; i < vrfConsumer.s_numWords(); i++) {
             words[i] = uint256(keccak256(abi.encode(requestId, i)));

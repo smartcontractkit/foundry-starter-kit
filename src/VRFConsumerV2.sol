@@ -50,12 +50,9 @@ contract VRFConsumerV2 is VRFConsumerBaseV2 {
      * @param vrfCoordinator - coordinator, check https://docs.chain.link/docs/vrf-contracts/#configurations
      * @param keyHash - the gas lane to use, which specifies the maximum gas price to bump to
      */
-    constructor(
-        uint64 subscriptionId,
-        address vrfCoordinator,
-        address link,
-        bytes32 keyHash
-    ) VRFConsumerBaseV2(vrfCoordinator) {
+    constructor(uint64 subscriptionId, address vrfCoordinator, address link, bytes32 keyHash)
+        VRFConsumerBaseV2(vrfCoordinator)
+    {
         COORDINATOR = VRFCoordinatorV2Interface(vrfCoordinator);
         LINKTOKEN = LinkTokenInterface(link);
         s_keyHash = keyHash;
@@ -70,11 +67,7 @@ contract VRFConsumerV2 is VRFConsumerBaseV2 {
     function requestRandomWords() external onlyOwner {
         // Will revert if subscription is not set and funded.
         s_requestId = COORDINATOR.requestRandomWords(
-            s_keyHash,
-            s_subscriptionId,
-            s_requestConfirmations,
-            s_callbackGasLimit,
-            s_numWords
+            s_keyHash, s_subscriptionId, s_requestConfirmations, s_callbackGasLimit, s_numWords
         );
     }
 
@@ -84,10 +77,7 @@ contract VRFConsumerV2 is VRFConsumerBaseV2 {
      * @param requestId - id of the request
      * @param randomWords - array of random results from VRF Coordinator
      */
-    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords)
-        internal
-        override
-    {
+    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override {
         s_randomWords = randomWords;
         emit ReturnedRandomness(randomWords);
     }

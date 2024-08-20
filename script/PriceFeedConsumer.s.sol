@@ -4,7 +4,7 @@ pragma solidity ^0.8.7;
 import "forge-std/Script.sol";
 import "../src/PriceFeedConsumer.sol";
 import "./HelperConfig.sol";
-import "../src/test/mocks/MockV3Aggregator.sol";
+import "../test/mocks/MockV3Aggregator.sol";
 
 contract DeployPriceFeedConsumer is Script, HelperConfig {
     uint8 constant DECIMALS = 18;
@@ -13,8 +13,7 @@ contract DeployPriceFeedConsumer is Script, HelperConfig {
     function run() external {
         HelperConfig helperConfig = new HelperConfig();
 
-        (, , , , , address priceFeed, , , ) = helperConfig
-            .activeNetworkConfig();
+        (,,,,, address priceFeed,,,) = helperConfig.activeNetworkConfig();
 
         if (priceFeed == address(0)) {
             priceFeed = address(new MockV3Aggregator(DECIMALS, INITIAL_ANSWER));

@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "../KeepersCounter.sol";
+import "../src/KeepersCounter.sol";
 import "forge-std/Test.sol";
 import "./utils/Cheats.sol";
 
@@ -19,13 +19,13 @@ contract KeepersCounterTest is Test {
     }
 
     function testCheckupReturnsFalseBeforeTime() public {
-        (bool upkeepNeeded, ) = counter.checkUpkeep("0x");
+        (bool upkeepNeeded,) = counter.checkUpkeep("0x");
         assertTrue(!upkeepNeeded);
     }
 
     function testCheckupReturnsTrueAfterTime() public {
         cheats.warp(staticTime + INTERVAL + 1); // Needs to be more than the interval
-        (bool upkeepNeeded, ) = counter.checkUpkeep("0x");
+        (bool upkeepNeeded,) = counter.checkUpkeep("0x");
         assertTrue(upkeepNeeded);
     }
 
