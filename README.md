@@ -52,21 +52,19 @@ cd foundry-starter-kit
 
 ## Install dependencies as follows:
 
-You can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes.
+Run `forge install` to install dependencies. [Foundry uses git submodules](https://book.getfoundry.sh/projects/dependencies) as its dependency management system.
 
-1. `forge install foundry-rs/forge-std  << --no-commit  >>` and `forge install transmissions11/solmate << --no-commit  >>`
-
-2. `forge install smartcontractkit/chainlink-brownie-contracts << --no-commit  >>`
-
-3. `forge install smartcontractkit/foundry-chainlink-toolkit << --no-commit  >>`
+> ⚠️  when running forge install, you may see an error message if you have uncomitted changes in your repo.  Read the message carefully - it may inform you that you can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes.
 
 You can update dependencies by running `forge update`
 
 ## Testing
-
+To check that everything is compiling and working as intended after cloning and installing dependencies, run
 ```
 forge test
 ```
+
+All tests should pass.
 
 # Chainlink Foundry Starter Kit
 
