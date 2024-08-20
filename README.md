@@ -73,7 +73,6 @@ Implementation of the following 4 Chainlink services using the [Foundry] (https:
 - [Chainlink Price Feeds](https://docs.chain.link/docs/using-chainlink-reference-contracts)
 - [Chainlink VRF V2](https://docs.chain.link/docs/chainlink-vrf)
 - [Chainlink Automation](https://docs.chain.link/chainlink-automation/introduction)
-- [Request & Receive data (AnyAPI)](https://docs.chain.link/any-api/introduction)
 
 For [Chainlink Functions](https://docs.chain.link/chainlink-functions) please go to these starter kits: [Hardhat](https://github.com/smartcontractkit/functions-hardhat-starter-kit) | [Foundry (coming soon)](https://github.com/smartcontractkit/functions-foundry-starter-kit)
 
