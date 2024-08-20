@@ -1,0 +1,28 @@
+name: Run Tests On PR
+
+on:
+    # Run tests for pull requests to the main or develop branch
+    pull_request:
+      branches: [main, develop]
+    # Run tests on pushes to all branches
+    push:
+      branches: ["**"]
+    workflow_dispatch:
+
+
+jobs:
+  test:
+    name: run forge test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Run tests
+        run: forge test -vvv
