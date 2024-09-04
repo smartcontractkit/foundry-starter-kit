@@ -21,15 +21,12 @@ contract PriceFeedConsumer {
      */
     function getLatestPrice() public view returns (int256) {
         (
-            ,
-            /* uint80 roundID */
+            /* uint80 roundID */,
             int256 price,
-            ,
-            ,
-        ) = /* uint256 startedAt */
-        /* uint256 timeStamp */
-        /* uint80 answeredInRound */
-         priceFeed.latestRoundData();
+            /* uint256 startedAt */,
+            /* uint256 timeStamp */,
+            /* uint80 answeredInRound */
+        ) = priceFeed.latestRoundData();
         return price;
     }
 
