@@ -56,19 +56,14 @@ Run `forge install` to install dependencies. [Foundry uses git submodules](https
 
 > ⚠️  when running forge install, you may see an error message if you have uncomitted changes in your repo.  Read the message carefully - it may inform you that you can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes.
 
-You can update dependencies by running `forge update`
+You can update dependencies by running `forge update`.
 
 ## Testing
-To check that everything is compiling and working as intended after cloning and installing dependencies, run
-```
-forge test
-```
-
-All tests should pass.
+To check that everything is compiling and working as intended after cloning and installing dependencies, run `forge test`. All tests should pass.
 
 # Chainlink Foundry Starter Kit
 
-Implementation of the following 4 Chainlink services using the [Foundry] (https://book.getfoundry.sh/) smart contract development tooling:
+Implementation of the following 4 Chainlink services using the [Foundry](https://book.getfoundry.sh/) smart contract development tooling:
 
 - [Chainlink Price Feeds](https://docs.chain.link/docs/using-chainlink-reference-contracts)
 - [Chainlink VRF V2](https://docs.chain.link/docs/chainlink-vrf)
