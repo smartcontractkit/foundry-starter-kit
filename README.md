@@ -1,5 +1,5 @@
-_Note: This repo has been recently updated for Sepolia_
-
+> [!IMPORTANT]
+> This repository has recently been updated for use with [Chainlink contracts](https://github.com/smartcontractkit/chainlink-evm/) v1.5.0. See the [dependency installation section for instructions on how to set up v1.5.0](#installing-chainlink-contracts-with-forge-install) within your own project using `forge install`.
 # Foundry Starter Kit
 
 <br/>
@@ -18,6 +18,7 @@ Foundry Starter Kit is a repo that shows developers how to quickly build, test, 
 - [Getting Started](#getting-started)
   - [Requirements](#requirements)
   - [Quickstart](#quickstart)
+  - [Dependencies](#install-dependencies-as-follows)
   - [Testing](#testing)
 - [Deploying to a network](#deploying-to-a-network)
   - [Setup](#setup)
@@ -50,13 +51,73 @@ git clone https://github.com/smartcontractkit/foundry-starter-kit
 cd foundry-starter-kit
 ```
 
-## Install dependencies as follows:
+## Install dependencies as follows: 
 
 Run `forge install` to install dependencies. [Foundry uses git submodules](https://book.getfoundry.sh/projects/dependencies) as its dependency management system.
 
-> ⚠️  when running forge install, you may see an error message if you have uncomitted changes in your repo.  Read the message carefully - it may inform you that you can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes.
+> ⚠️  when running forge install, you may see an error message if you have uncommitted changes in your repo.  Read the message carefully - it may inform you that you can add the `--no-commit` flag to each of these `install` commands if your workspace has uncommitted changes.
 
 You can update dependencies by running `forge update`
+
+## Installing Chainlink contracts:
+
+```
+forge install
+```
+
+> [!IMPORTANT]
+> For this starter kit, the packages have already been included and can be installed using the above `forge install` command. This package includes Chainlink contracts v1.5.0.
+
+To add Chainlink contracts to an existing project:
+
+<details id=">=1.5.0">
+<summary>v1.5.0 and above</summary>
+
+### Step 1: Install >= v1.5.0 and required dependencies
+
+```
+forge install \
+  smartcontractkit/chainlink-evm@contracts-v<version> \
+  openzeppelin-contracts-4.7.3=openzeppelin/openzeppelin-contracts@v4.7.3 \
+  openzeppelin-contracts-4.8.3=openzeppelin/openzeppelin-contracts@v4.8.3 \
+  openzeppelin-contracts-4.9.6=openzeppelin/openzeppelin-contracts@v4.9.6 \
+  openzeppelin-contracts-5.0.2=openzeppelin/openzeppelin-contracts@v5.0.2 \
+  openzeppelin-contracts-5.1.0=openzeppelin/openzeppelin-contracts@v5.1.0
+```
+
+### Step 2: Set remappings 
+
+Include the following remappings within your project's `remappings.txt` or `foundry.toml`.
+
+```
+@chainlink/=lib/chainlink-evm/
+@openzeppelin/contracts@4.7.3/=lib/openzeppelin-contracts-4.7.3/contracts/
+@openzeppelin/contracts@4.8.3/=lib/openzeppelin-contracts-4.8.3/contracts/
+@openzeppelin/contracts@4.9.6/=lib/openzeppelin-contracts-4.9.6/contracts/
+@openzeppelin/contracts@5.0.2/=lib/openzeppelin-contracts-5.0.2/contracts/
+@openzeppelin/contracts@5.1.0/=lib/openzeppelin-contracts-5.1.0/contracts/
+```
+
+</details>
+
+<details id="<=1.4.0">
+<summary>v1.4.0 and below</summary>
+
+#### Step 1: Install <= v1.4.0
+
+```
+forge install smartcontractkit/chainlink-evm@contracts-v<version>
+```
+
+#### Step 2: Set remappings
+
+Include the following remappings within your project's `remappings.txt` or `foundry.toml`.
+
+```
+@chainlink/contracts/=lib/chainlink-evm/contracts/
+```
+
+</details>
 
 ## Testing
 To check that everything is compiling and working as intended after cloning and installing dependencies, run
@@ -76,7 +137,7 @@ Implementation of the following 4 Chainlink services using the [Foundry] (https:
 
 For [Chainlink Functions](https://docs.chain.link/chainlink-functions) please go to these starter kits: [Hardhat](https://github.com/smartcontractkit/functions-hardhat-starter-kit) | [Foundry (coming soon)](https://github.com/smartcontractkit/functions-foundry-starter-kit)
 
-For [Chainlink CCIP (Cross Chain Interoperability Prototocol)](https://docs.chain.link/ccip) please go to these starter kits: [Hardhat](https://github.com/smartcontractkit/ccip-starter-kit-hardhat) | [Foundry](https://github.com/smartcontractkit/ccip-starter-kit-foundry)
+For [Chainlink CCIP (Cross Chain Interoperability Protocol)](https://docs.chain.link/ccip) please go to these starter kits: [Hardhat](https://github.com/smartcontractkit/ccip-starter-kit-hardhat) | [Foundry](https://github.com/smartcontractkit/ccip-starter-kit-foundry)
 
 # Deploying to a network
 
@@ -89,7 +150,7 @@ We'll demo using the Sepolia testnet. (Go here for [testnet sepolia ETH](https:/
 You'll need to add the following variables to a `.env` file:
 
 - `SEPOLIA_RPC_URL`: A URL to connect to the blockchain. You can get one for free from [Infura](https://www.infura.io/) account
-- `PRIVATE_KEY`: A private key from your wallet. You can get a private key from a new [Metamask](https://metamask.io/) account
+- `PRIVATE_KEY`: A private key from your wallet. You can get a private key from a new [MetaMask](https://metamask.io/) account
   - Additionally, if you want to deploy to a testnet, you'll need test ETH and/or LINK. You can get them from [faucets.chain.link](https://faucets.chain.link/).
 - Optional `ETHERSCAN_API_KEY`: If you want to verify on etherscan
 

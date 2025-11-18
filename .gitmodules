@@ -11,3 +11,18 @@
 [submodule "lib/chainlink-evm"]
 	path = lib/chainlink-evm
 	url = https://github.com/smartcontractkit/chainlink-evm
+[submodule "lib/openzeppelin-contracts-4.8.3"]
+	path = lib/openzeppelin-contracts-4.8.3
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "lib/openzeppelin-contracts-4.7.3"]
+	path = lib/openzeppelin-contracts-4.7.3
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "lib/openzeppelin-contracts-4.9.6"]
+	path = lib/openzeppelin-contracts-4.9.6
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "lib/openzeppelin-contracts-5.0.2"]
+	path = lib/openzeppelin-contracts-5.0.2
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "lib/openzeppelin-contracts-5.1.0"]
+	path = lib/openzeppelin-contracts-5.1.0
+	url = https://github.com/openzeppelin/openzeppelin-contracts

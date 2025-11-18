@@ -1,0 +1,32 @@
+{
+  "lib/chainlink-evm": {
+    "rev": "86aa5a1d34b20eda8d18fe6eb0e4882948e545ba"
+  },
+  "lib/forge-std": {
+    "rev": "1714bee72e286e73f76e320d110e0eaf5c4e649d"
+  },
+  "lib/foundry-chainlink-toolkit": {
+    "branch": {
+      "name": "feature/integration-automation",
+      "rev": "caa68b15a67340b13f4d1a2147a7c454b3443744"
+    }
+  },
+  "lib/openzeppelin-contracts-4.7.3": {
+    "rev": "ecd2ca2cd7cac116f7a37d0e474bbb3d7d5e1c4d"
+  },
+  "lib/openzeppelin-contracts-4.8.3": {
+    "rev": "0a25c1940ca220686588c4af3ec526f725fe2582"
+  },
+  "lib/openzeppelin-contracts-4.9.6": {
+    "rev": "dc44c9f1a4c3b10af99492eed84f83ed244203f6"
+  },
+  "lib/openzeppelin-contracts-5.0.2": {
+    "rev": "dbb6104ce834628e473d2173bbc9d47f81a9eec3"
+  },
+  "lib/openzeppelin-contracts-5.1.0": {
+    "rev": "69c8def5f222ff96f2b5beff05dfba996368aa79"
+  },
+  "lib/solmate": {
+    "rev": "97bdb2003b70382996a79a406813f76417b1cf90"
+  }
+}

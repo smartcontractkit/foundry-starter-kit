@@ -3,3 +3,10 @@
 @clones=lib/clones-with-immutable-args/src/
 @chainlink/=lib/chainlink-evm/
 forge-std/=lib/forge-std/src/
+
+
+@openzeppelin/contracts@4.7.3/=lib/openzeppelin-contracts-4.7.3/contracts/
+@openzeppelin/contracts@4.8.3/=lib/openzeppelin-contracts-4.8.3/contracts/
+@openzeppelin/contracts@4.9.6/=lib/openzeppelin-contracts-4.9.6/contracts/
+@openzeppelin/contracts@5.0.2/=lib/openzeppelin-contracts-5.0.2/contracts/
+@openzeppelin/contracts@5.1.0/=lib/openzeppelin-contracts-5.1.0/contracts/
