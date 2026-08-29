@@ -15,11 +15,11 @@ contract DeployPriceFeedConsumer is Script, HelperConfig {
 
         (,,,,, address priceFeed,,,) = helperConfig.activeNetworkConfig();
 
+        vm.startBroadcast();
+
         if (priceFeed == address(0)) {
             priceFeed = address(new MockV3Aggregator(DECIMALS, INITIAL_ANSWER));
         }
-
-        vm.startBroadcast();
 
         new PriceFeedConsumer(priceFeed);
 
